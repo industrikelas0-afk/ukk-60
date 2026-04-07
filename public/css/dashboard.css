@@ -1,0 +1,107 @@
+/* --- Root Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --brand-red: #d32f2f;
+    --soft-red: #fff5f5;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --sidebar-width: 270px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+}
+
+/* --- Layout Wrapper --- */
+.dashboard-wrapper {
+    margin-left: var(--sidebar-width); 
+    padding: 40px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* --- Header Section --- */
+.db-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.greet-user h1 {
+    font-size: 1.8rem;
+    color: var(--text-dark); /* GANTI: Sudah tidak ungu lagi */
+    font-weight: 800;
+    margin: 0;
+}
+
+.greet-user p {
+    color: var(--text-muted);
+    margin: 5px 0 0;
+}
+
+.date-display {
+    background: white;
+    padding: 10px 18px;
+    border-radius: 14px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-display i {
+    color: var(--brand-red);
+}
+
+/* --- Hero Banner --- */
+.hero-banner {
+    background: linear-gradient(135deg, var(--brand-red) 0%, #b71c1c 100%);
+    border-radius: 24px;
+    padding: 50px;
+    color: white;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(211, 47, 47, 0.2);
+}
+
+.hero-banner h2 {
+    font-size: 2.2rem;
+    margin: 0 0 10px;
+    font-weight: 800;
+}
+
+.btn-hero {
+    text-decoration: none; 
+    display: inline-flex; 
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-top: 15px; 
+    background: white; 
+    color: var(--brand-red);
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    transform: scale(1.05);
+    background: var(--soft-red);
+}
+
+/* --- Table Styles --- */
+.history-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .dashboard-wrapper { margin-left: 0; padding: 20px; }
+    .db-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+}

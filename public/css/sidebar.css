@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --side-bg: #ffffff;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --brand-red: #dc3545; /* Merah untuk Logout */
+    --active-bg: #eef2ff; /* Biru muda dashboard */
+    --active-text: #4f46e5;
+    --sidebar-width: 270px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--side-bg);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.2rem;
+    box-sizing: border-box;
+    border-right: 1px solid #f1f1f1;
+    z-index: 1000;
+    /* Animasi dropdown sidebar saat load */
+    animation: sidebarFadeDown 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sidebarFadeDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Bagian Logo */
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 0.5rem 2rem;
+}
+
+.brand-area img { width: 45px; }
+.brand-area h2 { 
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    color: #0f172a; 
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Label Siswa (Ungu sesuai gambar) */
+.role-badge {
+    background: #6366f1;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: fit-content;
+    margin-left: 55px;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* Navigasi Utama */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.nav-link i {
+    width: 25px;
+    font-size: 1.1rem;
+    margin-right: 12px;
+}
+
+/* Hover & Active States */
+.nav-link:hover {
+    background: #f8fafc;
+    color: var(--text-main);
+}
+
+.nav-link.active {
+    background: var(--active-bg);
+    color: var(--active-text);
+}
+
+/* Dropdown Settings */
+.dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0; /* Untuk animasi slide down */
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fafafa;
+    border-radius: 10px;
+}
+
+.nav-link.open + .submenu {
+    max-height: 120px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+}
+
+.sub-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px 10px 52px; /* Menjorok ke kanan */
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.sub-link:hover {
+    color: var(--text-main);
+    background: #f1f1f1;
+}
+
+.chevron {
+    margin-left: auto;
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-link.open .chevron {
+    transform: rotate(180deg);
+}
+
+/* Tombol Logout Merah Bawah */
+.footer-action {
+    margin-top: auto;
+}
+
+.btn-logout-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    background: #fff5f5; /* Background merah muda tipis */
+    color: var(--brand-red);
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 1px solid #ffe3e3;
+    transition: all 0.3s ease;
+}
+
+.btn-logout-bottom:hover {
+    background: var(--brand-red);
+    color: white;
+}
+/* Warna default saat menu tidak diklik */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: #64748b; /* Warna abu-abu redup */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* WARNA SAAT MENU AKTIF (Sedang dibuka) */
+.nav-link.active {
+    background-color: #fff5f5; /* Latar merah sangat muda */
+    color: #d32f2f;           /* Teks jadi merah bold */
+}
+
+/* Ikon ikut berubah warna saat aktif */
+.nav-link.active i {
+    color: #d32f2f;
+}
+
+/* Efek hover agar interaktif */
+.nav-link:hover {
+    background-color: #f8fafc;
+    color: #d32f2f;
+}
+/* Update Bagian Logo */
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.5rem 0.5rem 1.5rem; /* Padding bawah disesuaikan */
+}
+
+/* Ukuran logo agar proporsional sesuai gambar SIGAP */
+.logo-img {
+    width: 42px; /* Ukuran yang pas untuk logo bulat SIGAP */
+    height: auto;
+    object-fit: contain;
+}
+
+.brand-area h2 { 
+    font-size: 1.2rem; 
+    font-weight: 800; 
+    color: #0f172a; 
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Badge Ungu (Label Admin) */
+.role-badge {
+    background: #e74848; /* Warna ungu indigo sesuai gambar */
+    color: white;
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: fit-content;
+    margin-left: 54px; /* Posisi di bawah teks SIGAP */
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+
+/* Perbaikan Footer Logout agar tetap di bawah */
+.footer-action {
+    margin-top: auto;
+    padding-top: 20px;
+}

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-red: #CB0C0C;
+    --hover-red: #A80A0A;
+    --bg-body: #f8fafc; /* Disamakan dengan kategori */
+    --border-color: #E9ECEF;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+}
+
+/* --- Master Layout Fix (Identik dengan Kategori) --- */
+.siswa-page-wrapper {
+    margin-left: 260px; /* Menyesuaikan lebar sidebar SIGAP */
+    padding: 40px;
+    min-height: 100vh;
+    background-color: var(--bg-body);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center; /* Agar card tetap di tengah area konten */
+}
+
+.register-card {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 1100px; 
+    border-radius: 16px; /* Disamakan dengan kategori */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    height: fit-content;
+}
+
+/* --- Header Section --- */
+.card-header-gradient {
+    background: var(--primary-red);
+    padding: 35px 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-text h2 { margin: 0; font-size: 24px; font-weight: 700; }
+.header-text p { margin: 5px 0 0; opacity: 0.8; font-size: 14px; }
+.header-icon i { font-size: 40px; opacity: 0.3; }
+
+/* --- Form Layout --- */
+.form-body {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    padding: 45px 50px;
+    gap: 50px;
+}
+
+.divider-vertical { background-color: #f1f5f9; }
+
+.input-group-modern { margin-bottom: 25px; }
+.input-group-modern label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group-modern label i { color: var(--primary-red); margin-right: 8px; }
+
+.input-group-modern input, 
+.input-group-modern select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group-modern input:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.1);
+}
+
+.info-box-red {
+    background-color: #fff1f2;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    gap: 12px;
+    border: 1px solid rgba(204, 0, 0, 0.1);
+}
+
+.info-box-red i { color: var(--primary-red); }
+.info-box-red p { font-size: 13px; color: #9B2C2C; margin: 0; line-height: 1.4; }
+
+/* --- Footer & Button --- */
+.form-footer-actions {
+    padding: 0 50px 45px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-primary-gradient {
+    background: var(--primary-red);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary-gradient:hover { 
+    background: var(--hover-red); 
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(204, 0, 0, 0.2);
+}
+
+/* --- Table Section --- */
+.section-divider { border: 0; border-top: 1px solid #f1f5f9; margin: 0; }
+
+.table-container { padding: 40px 50px; }
+.table-title { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+
+.modern-table { width: 100%; border-collapse: collapse; }
+.modern-table thead th {
+    background: #f8fafc;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.modern-table tbody td { 
+    padding: 18px 20px; 
+    border-bottom: 1px solid #f1f5f9; 
+    font-size: 14px; 
+    color: #334155;
+}
+
+.modern-table tbody tr:hover { background: #f8fafc; }
+
+.badge-red {
+    background: #fff1f2;
+    color: var(--primary-red);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid rgba(204, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .siswa-page-wrapper { margin-left: 0; padding: 20px; }
+    .form-body { grid-template-columns: 1fr; }
+    .divider-vertical { display: none; }
+}
