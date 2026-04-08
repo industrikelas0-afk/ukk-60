@@ -10,7 +10,7 @@
             <h1>Daftar Aspirasi Siswa </h1>
             <p>Kelola laporan </p>
         </div>
-        <a href="{{ route('dashboard-admin') }}" class="btn-back">
+        <a href="{{ route('dashboard.admin') }}" class="btn-back">
             <i class="fa-solid fa-arrow-left"></i> Dashboard
         </a>
     </header>
@@ -49,15 +49,15 @@
 
             <div class="card-footer">
                 <small class="timestamp">
-                    <i class="fa-regular fa-clock"></i> 
+                    <i class="fa-regular fa-clock"></i>
                     {{ $item->created_at->diffForHumans() }}
                 </small>
-                
+
                 <button class="btn-detail" onclick="openModal(
-                    '{{ $item->id_pelaporan }}', 
-                    '{{ $item->status }}', 
-                    '{{ addslashes($item->ket) }}', 
-                    {{ $item->aspirasi_all->toJson() }}, 
+                    '{{ $item->id_pelaporan }}',
+                    '{{ $item->status }}',
+                    '{{ addslashes($item->ket) }}',
+                    {{ $item->aspirasi_all->toJson() }},
                     '{{ $item->siswa->nisn }}',
                     '{{ $item->siswa->nama_lengkap }}',
                     '{{ $item->siswa->kelas }}',
@@ -67,7 +67,7 @@
                 )">Detail & Balas</button>
             </div>
         </div>
-        
+
         @empty
         {{-- TAMPILAN KETIKA ASPIRASI KOSONG --}}
         <div class="empty-state-container">
@@ -87,16 +87,14 @@
         @endforelse
     </div>
 
-    <div class="pagination-wrapper">
-        {{ $aspirasi->links() }}
-    </div>
+
 </div>
 
 {{-- MODAL DETAIL & RIWAYAT --}}
 <div id="modalDetail" class="modal">
     <div class="modal-content">
         <h3 class="modal-title">Detail Aspirasi & Riwayat Tanggapan</h3>
-        
+
         <div class="modal-body-grid">
             <div class="modal-col">
                 <div class="info-box">
@@ -181,7 +179,7 @@
         document.getElementById('vKet').innerText = `"${ket}"`;
 
         fbData = feedbacks;
-        currentIdx = fbData.length - 1; 
+        currentIdx = fbData.length - 1;
         renderFB();
 
         const img = document.getElementById('vFoto');
@@ -203,7 +201,7 @@
     function renderFB() {
         const container = document.getElementById('feedbackContent');
         const counter = document.getElementById('fbCounter');
-        
+
         if(fbData.length > 0) {
             const fb = fbData[currentIdx];
             const dateObj = new Date(fb.created_at);

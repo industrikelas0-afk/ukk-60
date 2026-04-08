@@ -14,7 +14,7 @@
             <a href="{{ route('admin.aspirasi.index') }}" class="btn-back">
                 <i class="fa-solid fa-list"></i> Data Aspirasi
             </a>
-            <a href="{{ route('dashboard-admin') }}" class="btn-back" style="background: #6c757d;">
+            <a href="{{ route('dashboard.admin') }}" class="btn-back" style="background: #6c757d;">
                 Dashboard
             </a>
         </div>
@@ -108,7 +108,7 @@
     document.querySelectorAll('.btn-hapus-swal').forEach(button => {
         button.addEventListener('click', function(e) {
             const form = this.closest('.form-delete');
-            
+
             Swal.fire({
                 title: 'Apakah anda yakin?',
                 text: "Kategori yang dihapus tidak bisa dikembalikan!",

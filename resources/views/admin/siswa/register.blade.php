@@ -69,7 +69,6 @@
                         <th>NISN</th>
                         <th>Nama Lengkap</th>
                         <th>Kelas & Jurusan</th>
-                        <th>Role</th>
                         <th>Tgl Terdaftar</th>
                     </tr>
                 </thead>
@@ -79,7 +78,6 @@
                         <td><strong>{{ $user->nisn }}</strong></td>
                         <td>{{ $user->nama_lengkap }}</td>
                         <td>{{ $user->kelas }}</td>
-                        <td><span class="badge-red">{{ strtoupper($user->role) }}</span></td>
                         <td>{{ $user->created_at->format('d/m/Y') }}</td>
                     </tr>
                     @empty
