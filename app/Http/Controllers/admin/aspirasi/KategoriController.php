@@ -33,10 +33,15 @@ class KategoriController extends Controller
 
     public function destroy($id)
     {
-        $kategori = Kategori::findOrFail($id);
-        $kategori->delete();
+        $cat = Kategori::findOrFail($id);
 
-        return redirect()->route('admin.aspirasi.kategori')->with('success', 'Kategori berhasil dihapus!');
+        if ($cat->aspirasi()->count() > 0) {
+            return redirect()->back()->with('error', 'Kategori tidak bisa di hapus karena sedang di gunakan');
+        }
+
+        $cat->delete();
+        return redirect()->back()->with('success', 'Kategori berhasil dihapus!');
+
     }
 }
 

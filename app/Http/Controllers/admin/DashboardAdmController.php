@@ -13,7 +13,7 @@ class DashboardAdmController extends Controller
     {
     $totalSiswa = User::count();
     $statusMenunggu = InputAspirasi::where('status', 'Menunggu')->count();
-    $statusProses = InputAspirasi::where('status', 'Diproses')->count();
+    $statusProses = InputAspirasi::where('status', 'Proses')->count();
     $statusSelesai = InputAspirasi::where('status', 'Selesai')->count();
 
     $aspirasiTerbaru = InputAspirasi::with('kategori')

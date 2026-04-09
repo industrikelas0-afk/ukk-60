@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\InputAspirasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Aspirasi;
 
 class DataController extends Controller
 {
@@ -20,29 +21,21 @@ class DataController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:Menunggu,Proses,Selesai',
-            'feedback' => 'required|string|min:5',
-        ], [
-            'feedback.required' => 'Feedback wajib diisi.',
-            'feedback.min' => 'Feedback harus minimal 5 karakter.',
+            'status'=> 'required|in:menunggu,proses,selesai',
+            'feedback' => 'required|string',
         ]);
-        try {
-        $aspirasi = InputAspirasi::findOrFail($id);
-        $aspirasi->update ([
+
+        $pelaporan = InputAspirasi::findOrFail($id);
+        $pelaporan->update([
             'status' => $request->status,
         ]);
 
-        $aspirasi->aspirasi_all()->create([
-            'id_pelaporan' => $request->status,
+        Aspirasi::create([
+            'id_pelaporan' => $id,
+            'id_admin' => Auth::guard('admin')->user()->id_admin,
             'feedback' => $request->feedback,
-            'id_admin' => Auth::guard('admin')->id(),
-            'created_at' => now(),
         ]);
-        return redirect()->back()->with('success', 'Status aspirasi berhasil diperbarui!');
 
-        }catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui status: ' . $e->getMessage());
-        }
-
+        return redirect()->back()->with('success', 'Berhasil memperbarui status aspirasi!');
     }
 }

@@ -6,7 +6,7 @@
         <img src="{{ asset('images/Logo-Sigap.png') }}" alt="Logo" class="logo-img">
         <h2>SIGAP</h2>
     </div>
-    
+
     <div class="role-badge">Admin</div>
 
     <nav class="nav-menu">
@@ -28,16 +28,11 @@
 
         <div class="dropdown-wrapper">
             <a href="javascript:void(0)" class="nav-link" onclick="this.classList.toggle('open')">
-                <i class="fa-solid fa-gear"></i> 
+                <i class="fa-solid fa-gear"></i>
                 <span>Settings</span>
                 <i class="fa-solid fa-chevron-down chevron"></i>
             </a>
             <ul class="submenu">
-                <li>
-                    <a href="/profile" class="sub-link">
-                        <i class="fa-regular fa-circle-user" style="margin-right: 8px;"></i> Profile
-                    </a>
-                </li>
                 <li>
                     <a href="/logout" class="sub-link" style="color: var(--brand-red);">
                         <i class="fa-solid fa-power-off" style="margin-right: 8px;"></i> Logout
